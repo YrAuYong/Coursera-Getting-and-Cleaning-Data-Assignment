@@ -9,7 +9,7 @@
   4. a README.md in the repo with the run_analysis.R script. This repo explains how all of the scripts work and how they are connected.
 
 ## Criteria of tidy dataset file
-- In accordance to the instructions in the assignment description involves 5 steps:**
+- In accordance to the instructions in the assignment description the criteria involves 5 steps:
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 3. Uses descriptive activity names to name the activities in the data set
@@ -42,15 +42,19 @@
 2. run command "source("run_analysis.R")" in R
 3. The "run_analysis.R" is tested to work properly in R studio, "R version 3.2.0 (2015-04-16)" installed in a windows 7 environment
 4. With machine spec i7 CPU and 16G RAM, and in the condition where "getdata-projectfiles-UCI HAR Dataset.zip" does not exist in the current working directory, the "run_analysis.R" script execution time measured with system.time() function is as follow (note that most of the time is used to download the raw data file):
+    ```
     > system.time(source("run_analysis.R"))
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                      Dload  Upload   Total   Spent    Left  Speed
     100 59.6M  100 59.6M    0     0   756k      0  0:01:20  0:01:20 --:--:--  965k
        user  system elapsed 
       23.51    0.66  105.87
-5. When the "run_analysis.R" run is completem, you should expect to find :
+    ```
+5. When the "run_analysis.R" run is completed, you should expect to find :
   - the final tidy dataset written into "tidy_dataset.txt" file in the current working directory. The "tidy_dataset.txt" file can be read into a dataframe in R with command: 
-      "df<- read.table("tidy_dataset.txt", header=TRUE)"
+      ```
+      > df<- read.table("tidy_dataset.txt", header=TRUE)
+      ```
   - a Data Viewer is invoked to display the final tidy dataset.
 
 ## Implementation of run_analysis.R script:
@@ -74,7 +78,7 @@
   - Merge Test & Train dataset in a single dataframe
   - Relevel subject factor in the merged dataframe so that the dataset can be arranged in a tidy sequence of subject number in ascending order
 6. extractMeasurements() function returns mean and standard deviation features row numbers
-7. setActivityLabels() function uses descriptive activity names to name the activities in the data set
+7. setActivityLabels() function uses descriptive activity names in activity_labels.txt to name the activities in the data set
 8. renameVariableNames() function appropriately labels the data set with descriptive variable names. The variable naming convention is in accordance to "Data Science - Getting & Cleaning Data" course guidelines in week 4 lecture, where:
   - all lower case when possible (For feature names that is a combination of several words, I have decided that camel case is more readable)
   - descriptive
@@ -83,7 +87,7 @@
 9. computeAve() function calculates the average of each feature variable grouped by each subject and activity pair
 
 ## Acknowledgement 
-The success completion of this assignment is not without help from the Community TAs (notably from David Hood) and various helpful forum posts on the Coursera course, to reference a few:
+The successful completion of this assignment is not without help from the Community TAs (notably from David Hood) and various helpful forum posts on the Coursera course, to reference a few:
 - https://class.coursera.org/getdata-015/forum/thread?thread_id=26
 - https://class.coursera.org/getdata-015/forum/thread?thread_id=27 
 - https://class.coursera.org/getdata-015/forum/thread?thread_id=112#comment-276
