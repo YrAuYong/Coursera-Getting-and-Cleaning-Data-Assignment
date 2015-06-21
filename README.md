@@ -10,11 +10,11 @@
 
 ## Criteria of tidy dataset file
 - In accordance to the instructions in the assignment description the criteria involves 5 steps:
-1. Merges the training and the test sets to create one data set.
-2. Extracts only the measurements on the mean and standard deviation for each measurement. 
-3. Uses descriptive activity names to name the activities in the data set
-4. Appropriately labels the data set with descriptive variable names. 
-5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+  1. Merges the training and the test sets to create one data set.
+  2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+  3. Uses descriptive activity names to name the activities in the data set
+  4. Appropriately labels the data set with descriptive variable names. 
+  5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 ## Raw data source: 
 - Raw Data File, "getdata-projectfiles-UCI HAR Dataset.zip" (input for run_analysis.R script) provided in course assignment descriptions: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
@@ -42,6 +42,7 @@
 2. run command "source("run_analysis.R")" in R
 3. The "run_analysis.R" is tested to work properly in R studio, "R version 3.2.0 (2015-04-16)" installed in a windows 7 environment
 4. With machine spec i7 CPU and 16G RAM, and in the condition where "getdata-projectfiles-UCI HAR Dataset.zip" does not exist in the current working directory, the "run_analysis.R" script execution time measured with system.time() function is as follow (note that most of the time is used to download the raw data file):
+
     ```
     > system.time(source("run_analysis.R"))
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -52,6 +53,7 @@
     ```
 5. When the "run_analysis.R" run is completed, you should expect to find :
   - the final tidy dataset written into "tidy_dataset.txt" file in the current working directory. The "tidy_dataset.txt" file can be read into a dataframe in R with command: 
+  
       ```
       > df<- read.table("tidy_dataset.txt", header=TRUE)
       ```
